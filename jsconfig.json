@@ -3,13 +3,29 @@
     "baseUrl": "src",
     "paths": {
       "@/*": ["*"],
-      "@components/*": ["components/*"],
+      "@components/*": ["shared/components/*"],
+      "@layouts/*": ["shared/layouts/*"],
       "@pages/*": ["pages/*"],
       "@assets/*": ["assets/*"],
       "@env/*": ["env/*"],
-      "@service/*": ["core/services/*"],
-      "@data/*": ["data/*"]
-    }
+      "@services/*": ["core/services/*"],
+      "@hooks/*": ["core/hooks/*"],
+      "@data/*": ["data/*"],
+      "@utils/*": ["utils/*"]
+    },
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx"
   },
   "include": ["src"]
 }
