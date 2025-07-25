@@ -2,7 +2,10 @@
 
 A responsive ReactJS web app that displays the most starred GitHub repositories created in the last 10 days. Designed with a mobile-first layout and infinite scrolling.
 
-![screenshot](./screenshot.png)
+<img width="1511" height="767" alt="Screenshot 2025-07-25 at 5 39 02 PM" src="https://github.com/user-attachments/assets/9659d8bb-9b49-4919-b936-d3200f26c044" />
+<img width="1512" height="764" alt="Screenshot 2025-07-25 at 5 39 21 PM" src="https://github.com/user-attachments/assets/7f403ea4-b36d-4f4a-974e-8a247c15024f" />
+<img width="1512" height="765" alt="Screenshot 2025-07-25 at 5 39 36 PM" src="https://github.com/user-attachments/assets/cf48b266-6636-45c1-878e-2928c52f803d" />
+
 
 ## 🚀 Features
 
