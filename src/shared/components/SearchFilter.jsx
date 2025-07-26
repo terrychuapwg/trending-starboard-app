@@ -1,22 +1,18 @@
 import { Input, Button, DatePicker } from "antd";
-import moment from "moment";
 import { Controller } from "react-hook-form";
 
 const SearchFilter = ({
   onSubmit,
-  register,
   handleSubmit,
   control,
-  setValue,
   isLoading,
-  defaultDate,
 }) => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
       className="flex flex-col md:flex-row gap-4"
     >
-      {/* Controlled keyword input */}
+      {/* Keyword input */}
       <Controller
         name="keyword"
         control={control}
@@ -29,19 +25,15 @@ const SearchFilter = ({
         )}
       />
 
-      {/* Controlled date input */}
+      {/* Date input */}
       <Controller
         name="date"
         control={control}
-        defaultValue={defaultDate}
         render={({ field }) => (
           <DatePicker
             format="YYYY-MM-DD"
-            defaultValue={moment(defaultDate)}
             onChange={(date) => {
-              if (date) {
-                field.onChange(date.format("YYYY-MM-DD"));
-              }
+              field.onChange(date ? date.format("YYYY-MM-DD") : null);
             }}
           />
         )}

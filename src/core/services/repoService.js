@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { environment } from '@env/env';
+import moment from "moment";
 
 
 const API = axios.create({
@@ -15,9 +16,10 @@ export const getTrendingRepos = async ({
   date,
   keyword = "",
 }) => {
-  const createdDate = date || new Date().toISOString().split("T")[0];
-    console.log('keyword',keyword)
-  // Format query
+    const createdDate = date && moment(date, "YYYY-MM-DD", true).isValid()
+    ? moment(date, "YYYY-MM-DD").format("YYYY-MM-DD")
+    : moment().format("YYYY-MM-DD");
+
   const q = `created:>${createdDate}${keyword ? ` ${keyword}` : ""}`;
 
   try {

@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import { useState, useRef, useEffect } from "react";
-import moment from "moment";
 import { Spin, List } from "antd";
 import { useNavigate } from "react-router-dom";
 
@@ -10,8 +9,7 @@ import Wrapper from "@layouts/Wrapper";
 import { useTrendingRepos } from "@hooks/query/useRepoQuery";
 
 const TrendingPage = () => {
-  const defaultDate = moment().subtract(7, "days").format("YYYY-MM-DD");
-  const [filters, setFilters] = useState({ keyword: "", date: defaultDate });
+  const [filters, setFilters] = useState({ keyword: "", date: "" });
 
   const {
     data,
@@ -22,7 +20,7 @@ const TrendingPage = () => {
     refetch,
   } = useTrendingRepos(filters);
 
-  const { register, handleSubmit, setValue, control } = useForm({
+  const { handleSubmit, control } = useForm({
     defaultValues: filters,
   });
   const navigate = useNavigate();
@@ -31,7 +29,7 @@ const TrendingPage = () => {
   const onSubmit = (formData) => {
     setFilters({
       keyword: formData.keyword || "",
-      date: formData.date || defaultDate,
+      date: formData.date,
     });
     refetch(); // refetch with new filters
   };
@@ -64,12 +62,9 @@ const TrendingPage = () => {
       <div className="p-4 mx-auto my-14 overflow-y-auto h-[85vh]" ref={scrollRef}>
         <SearchFilter
           onSubmit={onSubmit}
-          register={register}
           control={control}
           handleSubmit={handleSubmit}
-          setValue={setValue}
           isLoading={isLoading}
-          defaultDate={filters.date}
         />
 
         <div className="mt-6">

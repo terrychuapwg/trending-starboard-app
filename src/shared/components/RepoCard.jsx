@@ -7,9 +7,9 @@ const RepoCard = ({
   date,
   title,
   body,
-  avatar, // <<< user profile picture
-  username, // <<< user name
-  star, // rating
+  avatar,
+  username,
+  star,
   onView,
 }) => {
   const actions = [
@@ -26,16 +26,20 @@ const RepoCard = ({
   actions={actions}
   bodyStyle={{ minHeight: "180px", padding: "16px" }}
 >
-  {/* Grid layout for better responsiveness */}
   <div className="grid grid-rows-[auto_1fr_auto] gap-2">
-    {/* Title + Description */}
+    {/* Title + Description + Date */}
     <div className="h-[150px]">
-      <h3 className="text-base font-semibold text-gray-900 truncate">
-        {title}
-      </h3>
+      <div className="flex">
+        <h3 className="text-base font-semibold text-gray-900 truncate">
+          {title}
+        </h3>
+        <span className="text-xs text-gray-900 ml-auto">{moment(date).format("YYYY-MM-DD")}</span>
+      </div>
+
       <p className="text-gray-600 text-sm mt-1 line-clamp-6">
         {body}
       </p>
+      
     </div>
 
     {/* Avatar + Username + Star at bottom */}

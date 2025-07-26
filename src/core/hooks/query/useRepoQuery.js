@@ -20,6 +20,6 @@ export const useGetRepoById = (repoId) => {
     queryKey: ["repo", repoId],
     queryFn: () => getRepoById(repoId),
     enabled: !!repoId, // only run if repoId is provided
-    staleTime: 1000 * 60 * 10, // 10 minutes
+    staleTime: 1000 * 60 * 10, // Expired Cache in 10 minutes
   });
 }
